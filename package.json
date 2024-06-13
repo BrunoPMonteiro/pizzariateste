@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hotjar/browser": "^1.0.9",
     "@types/react-modal": "^3.16.3",
     "axios": "^1.7.2",
     "jwt-decode": "^4.0.0",

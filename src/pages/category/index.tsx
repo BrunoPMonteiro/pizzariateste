@@ -30,6 +30,7 @@ export default function Category(){
   return(
     <>
       <Head>
+        
         <title>Nova categoria - Santana Pizzaria</title>
         
       </Head>
