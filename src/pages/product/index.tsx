@@ -61,7 +61,7 @@ export default function Product({categoryList}: CategoryProps){
     try{
       const data = new FormData();
 
-      if(name === '' || price === '' || description === '' || imageAvatar === null){
+      if(name === '' || price === '' || description === ''){
         toast.error("Preencha todos os campos!")
         return;
       }
