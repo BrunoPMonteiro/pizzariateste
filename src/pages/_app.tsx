@@ -6,10 +6,10 @@ import Hotjar from '@hotjar/browser';
 
 import { AuthProvider } from '@/contexts/AuthContext';
 
-//const siteId = 5022178;
-//const hotjarVersion = 6;
+const siteId = 5022178;
+const hotjarVersion = 6;
 
-//Hotjar.init(siteId, hotjarVersion);
+Hotjar.init(siteId, hotjarVersion);
 
 function App({ Component, pageProps }: AppProps) {
   return (

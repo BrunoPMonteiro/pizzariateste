@@ -47,6 +47,7 @@ export default function Signup() {
     <>
     <Head>
       <title>Faça seu cadastro agora</title>
+      
     </Head>
     <div className={styles.containerCenter}>
       <Image src={logoImg} width={250} height={250} alt="Logo Santana Pizzaria"/>
