@@ -1,40 +1,96 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Este README explica como executar os testes automatizados para o sistema Santana Pizzaria, tanto com Jest (testes unitários) quanto com Cypress (testes E2E).
 
-## Getting Started
+Pré-requisitos
+Node.js (versão 16 ou superior)
 
-First, run the development server:
+npm ou yarn
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Aplicação rodando localmente em http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+API rodando localmente em http://localhost:3333
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Instalação
+Clone o repositório
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Instale as dependências:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+bash
+npm install
+# ou
+yarn install
+Testes com Jest (Unitários)
+Executando todos os testes
+bash
+npm test
+# ou
+yarn test
+Executando testes específicos
+bash
+npm test caminho/para/o/arquivo.test.js
+# ou
+yarn test caminho/para/o/arquivo.test.js
+Opções úteis
+--watch: Executa em modo watch
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+--coverage: Gera relatório de cobertura
 
-## Learn More
+bash
+npm test -- --coverage
+Testes com Cypress (E2E)
+Executando no modo interativo
+bash
+npm run cypress:open
+# ou
+yarn cypress:open
+Isso abrirá a interface do Cypress onde você pode selecionar os testes para executar.
 
-To learn more about Next.js, take a look at the following resources:
+Executando no modo headless
+bash
+npm run cypress:run
+# ou
+yarn cypress:run
+Executando testes específicos
+bash
+npx cypress run --spec "cypress/e2e/dashboard.spec.cy.js"
+Estrutura de Testes
+text
+tests/
+├── unit/               # Testes unitários com Jest
+│   ├── utils/          # Utilitários
+│   ├── services/       # Testes de serviços
+│   └── components/     # Testes de componentes
+└── e2e/                # Testes E2E com Cypress
+    ├── login/          # Fluxo de login
+    ├── dashboard/      # Painel principal
+    └── products/       # Cadastro de produtos
+Configuração de Ambiente
+Crie um arquivo .env.test na raiz do projeto com as variáveis de ambiente para testes:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+text
+TEST_API_URL=http://localhost:3333
+TEST_EMAIL=teste@teste.com
+TEST_PASSWORD=123456
+Dicas para Desenvolvimento
+Para testes com Jest, utilize mocks para serviços externos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+No Cypress, use cy.intercept() para mockar chamadas API
 
-## Deploy on Vercel
+Execute npm run test:ci para rodar todos os testes em modo CI
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Solução de Problemas
+Se encontrar erros:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Verifique se todos os serviços estão rodando
+
+Confira se as credenciais de teste estão corretas
+
+Limpe o cache do Jest com npm test -- --clearCache
+
+Contribuição
+Para adicionar novos testes:
+
+Crie um arquivo .spec.js ou .test.js para testes unitários
+
+Crie um arquivo .spec.cy.js para testes E2E
+
+Siga os padrões existentes na estrutura de pastas
